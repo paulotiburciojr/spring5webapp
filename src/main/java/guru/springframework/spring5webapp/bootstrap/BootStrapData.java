@@ -21,7 +21,7 @@ public class BootStrapData implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         Author eric = new Author("Eric", "Evans");
-        Book ddd = new Book("Domain Desing Drive", "123123");
+        Book ddd = new Book("Domain Design Drive", "123123");
         eric.getBooks().add(ddd);
         ddd.getAuthors().add(eric);
 
