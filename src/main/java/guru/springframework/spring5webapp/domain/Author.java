@@ -2,6 +2,7 @@ package guru.springframework.spring5webapp.domain;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 @Entity
@@ -15,15 +16,18 @@ public class Author {
     private String lastName;
 
     @ManyToMany(mappedBy = "authors")
-    private Set<Book> books;
+    private Set<Book> books = new HashSet<>();
 
     // Exigência do JPA (construtor sem parâmetro)
     public Author() {
     }
 
-    public Author(String firstName, String lastName, Set<Book> books) {
+    public Author(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
+    }
+    public Author(String firstName, String lastName, Set<Book> books) {
+        this(firstName, lastName);
         this.books = books;
     }
 
